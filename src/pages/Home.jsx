@@ -7,7 +7,7 @@ import {
   SpecialOffer,
   Subscribe,
   SuperQuality,
-} from '../components';
+} from '../sections';
 
 const Home = () => {
   return (
