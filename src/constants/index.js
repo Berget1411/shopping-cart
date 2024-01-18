@@ -7,11 +7,12 @@ import {
   twitter,
 } from '../assets/icons';
 
+import { customer1, customer2 } from '../assets/images';
+
 export const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#about-us', label: 'About Us' },
-  { href: '#products', label: 'Products' },
-  { href: '#contact-us', label: 'Contact Us' },
+  { location: '/', label: 'Home' },
+  { location: 'products', label: 'Products' },
+  { location: 'about', label: 'About Us' },
 ];
 
 export const statistics = [
