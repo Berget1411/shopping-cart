@@ -7,7 +7,7 @@ import { shoppingBag } from '../assets/icons';
 const Nav = ({ page }) => {
   const [hamburgerActive, setHamburgerActive] = useState(false);
   return (
-    <header className='padding-x py-8 z-10 w-full'>
+    <header className='padding-x py-8 z-10 w-full absolute'>
       <nav className='flex justify-between items-center max-container flex-wrap'>
         <Link
           to='/'
