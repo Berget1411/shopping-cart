@@ -7,6 +7,15 @@ import {
   twitter,
 } from '../assets/icons';
 
+import {
+  bigShoe1,
+  bigShoe2,
+  bigShoe3,
+  thumbnailShoe1,
+  thumbnailShoe2,
+  thumbnailShoe3,
+} from '../assets/images';
+
 import { customer1, customer2 } from '../assets/images';
 
 export const navLinks = [
@@ -19,6 +28,21 @@ export const statistics = [
   { value: '1k+', label: 'Brands' },
   { value: '500+', label: 'Shops' },
   { value: '250k+', label: 'Customers' },
+];
+
+export const shoes = [
+  {
+    thumbnail: thumbnailShoe1,
+    bigShoe: bigShoe1,
+  },
+  {
+    thumbnail: thumbnailShoe2,
+    bigShoe: bigShoe2,
+  },
+  {
+    thumbnail: thumbnailShoe3,
+    bigShoe: bigShoe3,
+  },
 ];
 
 export const services = [
