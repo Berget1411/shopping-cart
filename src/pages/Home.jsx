@@ -14,7 +14,7 @@ const Home = ({ products }) => {
   return (
     <main className='relative'>
       <Nav page={'/'} />
-      <section className='xl:padding-l wide:padding-r padding-b'>
+      <section className='xl:padding-l wide:padding-r padding-b '>
         <Hero
           product1={products[20]}
           product2={products[21]}
