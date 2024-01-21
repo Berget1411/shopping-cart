@@ -22,7 +22,7 @@ const Home = ({ products }) => {
         />
       </section>
       <section className='padding'>
-        <PopularProducts />
+        <PopularProducts products={products} />
       </section>
       <section className='padding'>
         <SuperQuality />
