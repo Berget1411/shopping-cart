@@ -17,6 +17,8 @@ import shoe7 from './shoe7.svg';
 import customer1 from './customer1.jpeg';
 import customer2 from './customer2.svg';
 
+import medal from './medal.svg';
+
 export {
   logo,
   bigShoe1,
@@ -32,4 +34,5 @@ export {
   shoe7,
   customer1,
   customer2,
+  medal,
 };
