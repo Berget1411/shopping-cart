@@ -19,6 +19,8 @@ import customer2 from './customer2.svg';
 
 import medal from './medal.svg';
 
+import offer from './offer.svg';
+
 export {
   logo,
   bigShoe1,
@@ -35,4 +37,5 @@ export {
   customer1,
   customer2,
   medal,
+  offer,
 };
