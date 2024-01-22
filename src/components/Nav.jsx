@@ -21,11 +21,12 @@ const Nav = ({ page }) => {
             <li key={item.label}>
               <Link
                 to={item.location}
-                className={
+                className={`font-montserrat leading-normal text-lg 
+                ${
                   item.location === page
-                    ? 'font-montserrat leading-normal text-lg  text-emerald-600 font-bold underline underline-offset-4 decoration-2 '
-                    : 'font-montserrat leading-normal text-lg text-slate-gray hover:text-slate-400'
-                }
+                    ? ' text-emerald-600 font-bold underline underline-offset-4 decoration-2'
+                    : ' text-slate-gray hover:text-slate-400'
+                } transition-color`}
               >
                 {item.label}
               </Link>
@@ -56,11 +57,12 @@ const Nav = ({ page }) => {
             {navLinks.map((item) => (
               <li
                 key={item.label}
-                className={
+                className={`py-2 px-3 rounded-md 
+                ${
                   item.location === page
-                    ? 'py-2 px-3 rounded-md bg-emerald-600 text-white '
-                    : 'py-2 px-3 rounded-md text-slate-gray hover:bg-gray-100 '
-                }
+                    ? 'bg-emerald-600 text-white '
+                    : 'text-slate-gray hover:bg-gray-100'
+                }`}
               >
                 <Link
                   to={item.location}
