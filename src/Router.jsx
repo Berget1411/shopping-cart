@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
+import Products from './pages/Products';
 import useProducts from './hooks/useProducts';
 
 const Router = () => {
@@ -12,6 +13,10 @@ const Router = () => {
     {
       path: '/',
       element: <Home products={products} />,
+    },
+    {
+      path: '/products',
+      element: <Products products={products} />,
     },
   ]);
 
