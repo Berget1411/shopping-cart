@@ -5,6 +5,7 @@ const Button = ({
   textColor,
   borderColor,
   fullWidth,
+  eventListener,
 }) => {
   return (
     <button
@@ -12,10 +13,10 @@ const Button = ({
       ${
         backgroundColor
           ? `${backgroundColor} ${textColor} ${borderColor}`
-          : 'bg-emerald-600 text-white border-emerald-600 hover:brightness-110 transition'
+          : 'bg-emerald-600 text-white border-emerald-600 '
       }
       ${fullWidth && 'w-full'}
-      `}
+      hover:brightness-110 transition`}
     >
       {label}
       {iconURL && (
