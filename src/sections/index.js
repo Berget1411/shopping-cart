@@ -7,6 +7,7 @@ import CustomerReviews from './CustomerReviews';
 import Subscribe from './Subscribe';
 import Footer from './Footer';
 import Filter from './Filter';
+import ProductCardGrid from './ProductCardGrid';
 
 export {
   Hero,
@@ -18,4 +19,5 @@ export {
   Subscribe,
   Footer,
   Filter,
+  ProductCardGrid,
 };

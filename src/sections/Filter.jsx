@@ -1,7 +1,14 @@
 import Button from '../components/Button';
 import { searchIcon, clear } from '../assets/icons';
 
-const Filter = ({ setSearchInput, setCategory, setSort }) => {
+const Filter = ({
+  searchInput,
+  setSearchInput,
+  category,
+  setCategory,
+  sort,
+  setSort,
+}) => {
   return (
     <section id='search' className='flex justify-center max-container '>
       <div className=' flex justify-center items-center flex-wrap w-full gap-2 pt-28 '>
@@ -11,6 +18,7 @@ const Filter = ({ setSearchInput, setCategory, setSort }) => {
             placeholder='Search'
             className='appearance-none focus:outline-none  :'
             onChange={(e) => setSearchInput(e.target.value)}
+            value={searchInput}
           />
           <img
             src={searchIcon}
@@ -22,9 +30,9 @@ const Filter = ({ setSearchInput, setCategory, setSort }) => {
         </div>
         <div
           onClick={() => {
-            setSearchInput(null);
+            setSearchInput('');
             setCategory('all');
-            setSort(null);
+            setSort('a-z');
           }}
         >
           <img
@@ -42,12 +50,14 @@ const Filter = ({ setSearchInput, setCategory, setSort }) => {
               id='categorySort'
               className='focus:outline-none cursor-pointer'
               onChange={(e) => setCategory(e.target.value)}
+              value={category}
             >
               <option value='all'>All</option>
-              <option value='tshirts'>Tshirts</option>
-              <option value='caps'>Caps</option>
-              <option value='eyeware'>Eyeware</option>
-              <option value='denims'>Denims</option>
+              <option value="men's clothing">Men&apos;s clothing</option>
+              <option value="women's clothing">Women&apos;s clothing</option>
+              <option value='shoes'>Shoes</option>
+              <option value='jewelery'>Jewelery</option>
+              <option value='electronics'>Electronics</option>
             </select>
           </div>
           <div className='py-1.5 px-4 border-2 border-slate-gray rounded-full focus-within:border-emerald-600 cursor-pointer'>
@@ -56,14 +66,12 @@ const Filter = ({ setSearchInput, setCategory, setSort }) => {
               id='sort'
               className='focus:outline-none cursor-pointer'
               onChange={(e) => setSort(e.target.value)}
+              value={sort}
             >
-              <option value='' disabled='' hidden=''>
-                Sort
-              </option>
               <option value='a-z'>A-Z</option>
               <option value='z-a'>Z-A</option>
-              <option value='low-high'>Lowest(Price)</option>
-              <option value='high-low'>Highest(Price)</option>
+              <option value='low-high'>Lowest (Price)</option>
+              <option value='high-low'>Highest (Price)</option>
             </select>
           </div>
         </div>

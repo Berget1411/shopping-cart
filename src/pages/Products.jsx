@@ -1,24 +1,49 @@
 import { useState } from 'react';
-import Nav from '../components/Nav';
-import { Footer, Filter } from '../sections/';
+import { Nav } from '../components/';
+import { Footer, Filter, ProductCardGrid } from '../sections/';
 
 const Products = ({ products }) => {
-  const [searchInput, setSearchInput] = useState(null);
+  const [searchInput, setSearchInput] = useState('');
   const [category, setCategory] = useState('all');
-  const [sort, setSort] = useState(null);
-  console.log(searchInput, category, sort);
+  const [sort, setSort] = useState('a-z');
+
+  const sortProducts = () => {
+    switch (sort) {
+      case 'a-z':
+        return products.sort((a, b) => a.title.localeCompare(b.title));
+
+      case 'z-a':
+        return products.sort((a, b) => b.title.localeCompare(a.title));
+
+      case 'low-high':
+        return products.sort((a, b) => a.price - b.price);
+
+      case 'high-low':
+        return products.sort((a, b) => b.price - a.price);
+    }
+  };
+
+  const filteredProducts = sortProducts().filter(
+    (product) =>
+      product.title.toLowerCase().includes(searchInput) &&
+      (category === 'all' || product.category === category)
+  );
+
   return (
     <main className='relative'>
       <Nav page={'products'} />
       <section className='xl:padding-l wide:padding-r padding-b'>
         <Filter
+          searchInput={searchInput}
           setSearchInput={setSearchInput}
+          category={category}
           setCategory={setCategory}
+          sort={sort}
           setSort={setSort}
         />
       </section>
       <section className='xl:padding-l wide:padding-r padding-b'>
-        productCards
+        <ProductCardGrid filteredProducts={filteredProducts} />
       </section>
       <section className='bg-black padding-x padding-t pb-8'>
         <Footer />
