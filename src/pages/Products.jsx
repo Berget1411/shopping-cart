@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Nav } from '../components/';
 import { Footer, Filter, ProductCardGrid } from '../sections/';
 
-const Products = ({ products }) => {
+const Products = ({ products, cart, addToCart, changeQty, removeProduct }) => {
   const [searchInput, setSearchInput] = useState('');
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState('a-z');
@@ -31,7 +31,13 @@ const Products = ({ products }) => {
 
   return (
     <main className='relative'>
-      <Nav page={'products'} />
+      <Nav
+        page={'products'}
+        cart={cart}
+        products={products}
+        changeQty={changeQty}
+        removeProduct={removeProduct}
+      />
       <section className='xl:padding-l wide:padding-r padding-b'>
         <Filter
           searchInput={searchInput}

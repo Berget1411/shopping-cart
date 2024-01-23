@@ -4,6 +4,7 @@ import PopularProductCard from './popularProductCard';
 import ProductCard from './ProductCard';
 import ReviewCard from './ReviewCard';
 import ServiceCard from './ServiceCard';
+import CartCard from './CartCard';
 
 export {
   Button,
@@ -12,4 +13,5 @@ export {
   ProductCard,
   ReviewCard,
   ServiceCard,
+  CartCard,
 };

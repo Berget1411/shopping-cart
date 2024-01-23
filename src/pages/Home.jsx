@@ -10,10 +10,16 @@ import {
 } from '../sections';
 import Nav from '../components/Nav';
 
-const Home = ({ products }) => {
+const Home = ({ products, cart, addToCart, changeQty, removeProduct }) => {
   return (
     <main className='relative'>
-      <Nav page={'/'} />
+      <Nav
+        page={'/'}
+        cart={cart}
+        products={products}
+        changeQty={changeQty}
+        removeProduct={removeProduct}
+      />
       <section className='xl:padding-l wide:padding-r padding-b '>
         <Hero
           product1={products[20]}

@@ -2,7 +2,7 @@ import { star } from '../assets/icons';
 import { Button } from '../components';
 import { Link } from 'react-router-dom';
 
-const Product = ({ product }) => {
+const Product = ({ product, cart, setCart, addToCart }) => {
   return (
     <section className='padding-x max-container flex flex-col gap-y-8 gap-x-32 lg:flex-row mb-32 pt-32'>
       <div className='flex justify-center max-w-lg w-full mx-auto  p-4 rounded-xl'>
@@ -45,7 +45,13 @@ const Product = ({ product }) => {
               borderColor={'bg-slate-gray'}
             />
           </Link>
-          <Button label={'Add to Bag'} />
+          <button
+            onClick={() => {
+              addToCart(product);
+            }}
+          >
+            Add to bag
+          </button>
         </div>
       </div>
     </section>

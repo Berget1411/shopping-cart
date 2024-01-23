@@ -2,10 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { logo } from '../assets/images/';
 import { navLinks } from '../constants';
-import { shoppingBag } from '../assets/icons';
+import { shoppingBag, arrowRight } from '../assets/icons';
+import CartCard from './CartCard';
+import Button from './Button';
 
-const Nav = ({ page }) => {
+const Nav = ({ page, cart, products, changeQty, removeProduct }) => {
   const [hamburgerActive, setHamburgerActive] = useState(false);
+  const [cartActive, setCartActive] = useState(false);
+
   return (
     <header className='padding-x py-8 z-10 w-full absolute'>
       <nav className='flex justify-between items-center max-container flex-wrap'>
@@ -34,9 +38,21 @@ const Nav = ({ page }) => {
           ))}
         </ul>
         <div className='flex gap-10'>
-          <Link to='cart' className='hover:scale-110 transition-transform'>
+          <div
+            className='relative hover:scale-110 transition-transform cursor-pointer'
+            onClick={() =>
+              cartActive === false ? setCartActive(true) : setCartActive(false)
+            }
+          >
             <img src={shoppingBag} alt='shopping-bag' width={29} height={29} />
-          </Link>
+            <span className='flex justify-center items-center absolute z-20 -top-3.5 -right-3.5 text-xs text-white font-bold w-6 h-6 bg-slate-gray rounded-full'>
+              {cart
+                .map((item) => item.qty)
+                .reduce((acc, curr) => {
+                  return acc + curr;
+                }, 0)}
+            </span>
+          </div>
 
           <button
             onClick={() =>
@@ -73,6 +89,51 @@ const Nav = ({ page }) => {
               </li>
             ))}
           </ul>
+        )}
+        {cartActive === true && (
+          <div>
+            <div className='z-[1000] fixed top-0 right-0  bg-white h-full w-full leading-5 text-sm max-w-xs md:max-w-xl flex flex-col py-5 px-5 md:px-16 md:py-10 transition-all duration-300 translate-x-0'>
+              <div className='flex justify-between align-center text-3xl font-bold'>
+                <h2>Shopping Bag</h2>
+                <button
+                  className='hover:text-slate-gray transition'
+                  onClick={() => setCartActive(false)}
+                >
+                  &#10005;
+                </button>
+              </div>
+              <div className='grow overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+                {cart.map((product) => (
+                  <CartCard
+                    product={product}
+                    products={products}
+                    changeQty={changeQty}
+                    removeProduct={removeProduct}
+                    key={product.id}
+                  />
+                ))}
+              </div>
+              <div className='border-t border-slate-300 pt-4 md:pt-6 px-7 md:px-16 text-black'>
+                <div className='flex justify-between font-bold text-lg mb-4'>
+                  <p>Subtotal:</p>
+                  <p>
+                    $
+                    {cart
+                      .map((item) => item.qty * item.price)
+                      .reduce((acc, curr) => {
+                        return acc + curr;
+                      }, 0)}
+                  </p>
+                </div>
+                <Button
+                  label={'Checkout'}
+                  iconURL={arrowRight}
+                  fullWidth={true}
+                />
+              </div>
+            </div>
+            <div className='z-[999] fixed top-0 right-0 w-full min-h-screen transition-all duration-300 bg-black/70 backdrop-blur-sm'></div>
+          </div>
         )}
       </nav>
     </header>

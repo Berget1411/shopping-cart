@@ -3,9 +3,11 @@ import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductPage from './pages/ProductPage';
 import useProducts from './hooks/useProducts';
+import useCart from './hooks/useCart';
 
 const Router = () => {
   const { products, error, loading } = useProducts();
+  const { cart, addToCart, changeQty, removeProduct } = useCart();
 
   if (error) return <p>A network error was encountered</p>;
   if (loading) return <p>Loading...</p>;
@@ -13,15 +15,39 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Home products={products} />,
+      element: (
+        <Home
+          products={products}
+          cart={cart}
+          addToCart={addToCart}
+          changeQty={changeQty}
+          removeProduct={removeProduct}
+        />
+      ),
     },
     {
       path: '/products',
-      element: <Products products={products} />,
+      element: (
+        <Products
+          products={products}
+          cart={cart}
+          addToCart={addToCart}
+          changeQty={changeQty}
+          removeProduct={removeProduct}
+        />
+      ),
     },
     {
       path: '/products/:productId',
-      element: <ProductPage products={products} />,
+      element: (
+        <ProductPage
+          products={products}
+          cart={cart}
+          addToCart={addToCart}
+          changeQty={changeQty}
+          removeProduct={removeProduct}
+        />
+      ),
     },
   ]);
 
