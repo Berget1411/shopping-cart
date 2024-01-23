@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import Nav from '../components/Nav';
-import { Footer } from '../sections';
+import { Footer, Filter } from '../sections/';
 
 const Products = ({ products }) => {
   const [searchInput, setSearchInput] = useState(null);
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState(null);
+  console.log(searchInput, category, sort);
   return (
     <main className='relative'>
       <Nav page={'products'} />
       <section className='xl:padding-l wide:padding-r padding-b'>
-        Search
+        <Filter
+          setSearchInput={setSearchInput}
+          setCategory={setCategory}
+          setSort={setSort}
+        />
       </section>
       <section className='xl:padding-l wide:padding-r padding-b'>
         productCards
