@@ -45,13 +45,10 @@ const Product = ({ product, cart, setCart, addToCart }) => {
               borderColor={'bg-slate-gray'}
             />
           </Link>
-          <button
-            onClick={() => {
-              addToCart(product);
-            }}
-          >
-            Add to bag
-          </button>
+          <Button
+            label={'Add to cart'}
+            eventListener={() => addToCart(product)}
+          />
         </div>
       </div>
     </section>
