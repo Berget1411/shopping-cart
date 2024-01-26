@@ -150,11 +150,13 @@ const Nav = ({ page, cart, products, changeQty, removeProduct }) => {
                   <p>Subtotal:</p>
                   <p>
                     $
-                    {cart
-                      .map((item) => item.qty * item.price)
-                      .reduce((acc, curr) => {
-                        return acc + curr;
-                      }, 0)}
+                    {Math.round(
+                      cart
+                        .map((item) => item.qty * item.price)
+                        .reduce((acc, curr) => {
+                          return acc + curr;
+                        }, 0) * 100
+                    ) / 100}
                   </p>
                 </div>
                 <Button
