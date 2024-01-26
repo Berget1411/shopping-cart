@@ -18,7 +18,7 @@ const Nav = ({ page, cart, products, changeQty, removeProduct }) => {
   }, [width]);
 
   return (
-    <header className='padding-x py-8 z-10 w-full absolute'>
+    <header className='padding-x py-8 z-20 w-full absolute'>
       <nav className='flex justify-between items-center max-container flex-wrap'>
         <Link
           to='/'
@@ -129,15 +129,21 @@ const Nav = ({ page, cart, products, changeQty, removeProduct }) => {
                 </button>
               </div>
               <div className='grow overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
-                {cart.map((product) => (
-                  <CartCard
-                    product={product}
-                    products={products}
-                    changeQty={changeQty}
-                    removeProduct={removeProduct}
-                    key={product.id}
-                  />
-                ))}
+                {cart.length === 0 ? (
+                  <p className='text-lg mt-5'>
+                    No items have been added to your bag
+                  </p>
+                ) : (
+                  cart.map((product) => (
+                    <CartCard
+                      product={product}
+                      products={products}
+                      changeQty={changeQty}
+                      removeProduct={removeProduct}
+                      key={product.id}
+                    />
+                  ))
+                )}
               </div>
               <div className='border-t border-slate-300 pt-4 md:pt-6 px-7 md:px-16 text-black'>
                 <div className='flex justify-between font-bold text-lg mb-4'>
