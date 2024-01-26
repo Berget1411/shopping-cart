@@ -5,6 +5,7 @@ const Button = ({
   textColor,
   borderColor,
   fullWidth,
+  eventListener,
 }) => {
   return (
     <button
@@ -16,6 +17,7 @@ const Button = ({
       }
       ${fullWidth && 'w-full'}
       hover:brightness-110 transition`}
+      onClick={eventListener}
     >
       {label}
       {iconURL && (
