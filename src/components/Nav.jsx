@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
+import useWindowDimensions from '../hooks/useWindowDimensions';
 import { Link } from 'react-router-dom';
 import { logo } from '../assets/images/';
 import { navLinks } from '../constants';
@@ -9,6 +11,11 @@ import Button from './Button';
 const Nav = ({ page, cart, products, changeQty, removeProduct }) => {
   const [hamburgerActive, setHamburgerActive] = useState(false);
   const [cartActive, setCartActive] = useState(false);
+  const { height, width } = useWindowDimensions();
+
+  useEffect(() => {
+    width >= 768 && setHamburgerActive(false);
+  }, [width]);
 
   return (
     <header className='padding-x py-8 z-10 w-full absolute'>
@@ -69,30 +76,49 @@ const Nav = ({ page, cart, products, changeQty, removeProduct }) => {
           </button>
         </div>
         {hamburgerActive === true && (
-          <ul className='flex-col gap-32 w-full mt-5 md:hidden'>
-            {navLinks.map((item) => (
-              <li
-                key={item.label}
-                className={`py-2 px-3 rounded-md 
+          <div>
+            <div className='z-50 fixed top-0 right-0  bg-white h-full leading-5 w-full max-w-xs flex flex-col py-5 px-5 transition-all duration-300 translate-x-0'>
+              <div className='flex items-center justify-between border-b-2 pb-3'>
+                <div className='flex items-center gap-2'>
+                  <img src={logo} alt='Logo' width={40} />
+                  <h2 className='text-2xl font-bold text-emerald-600'>
+                    SwiftCart
+                  </h2>
+                </div>
+                <button
+                  className='hover:text-slate-gray transition text-2xl'
+                  onClick={() => setHamburgerActive(false)}
+                >
+                  &#10005;
+                </button>
+              </div>
+              <ul className='flex-1 flex flex-col gap-10 mt-5'>
+                {navLinks.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      to={item.location}
+                      className={`font-montserrat leading-normal text-lg 
                 ${
                   item.location === page
-                    ? 'bg-emerald-600 text-white '
-                    : 'text-slate-gray hover:bg-gray-100'
-                }`}
-              >
-                <Link
-                  to={item.location}
-                  className='font-montserrat w-full block leading-normal text-lg '
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+                    ? ' text-emerald-600 font-bold underline underline-offset-4 decoration-2'
+                    : ' text-slate-gray hover:text-slate-400'
+                } transition-color`}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div
+              className='z-40 fixed top-0 right-0 w-full min-h-screen transition-all duration-300 bg-black/70 backdrop-blur-sm'
+              onClick={() => setHamburgerActive(false)}
+            ></div>
+          </div>
         )}
         {cartActive === true && (
           <div>
-            <div className='z-[1000] fixed top-0 right-0  bg-white h-full w-full leading-5 text-sm max-w-xs md:max-w-xl flex flex-col py-5 px-5 md:px-16 md:py-10 transition-all duration-300 translate-x-0'>
+            <div className='z-50 fixed top-0 right-0  bg-white h-full w-full leading-5 text-sm max-w-xs md:max-w-xl flex flex-col py-5 px-5 md:px-16 md:py-10 transition-all duration-300 translate-x-0'>
               <div className='flex justify-between align-center text-3xl font-bold'>
                 <h2>Shopping Bag</h2>
                 <button
@@ -132,7 +158,10 @@ const Nav = ({ page, cart, products, changeQty, removeProduct }) => {
                 />
               </div>
             </div>
-            <div className='z-[999] fixed top-0 right-0 w-full min-h-screen transition-all duration-300 bg-black/70 backdrop-blur-sm'></div>
+            <div
+              className='z-40 fixed top-0 right-0 w-full min-h-screen transition-all duration-300 bg-black/70 backdrop-blur-sm'
+              onClick={() => setCartActive(false)}
+            ></div>
           </div>
         )}
       </nav>
