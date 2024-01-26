@@ -19,14 +19,15 @@ const useCart = () => {
   const changeQty = (id, increment) => {
     setCart((prev) =>
       prev.map((product) => {
+        const newProduct = { ...product };
         if (product.id === id) {
           if (increment == 'add') {
-            product.qty = product.qty + 0.5;
+            newProduct.qty = newProduct.qty + 1;
           } else if (increment == 'remove' && product.qty > 0) {
-            product.qty = product.qty - 0.5;
+            newProduct.qty = newProduct.qty - 1;
           }
         }
-        return product;
+        return newProduct;
       })
     );
   };
