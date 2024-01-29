@@ -1,5 +1,6 @@
 import { Nav } from '../components';
 import { Footer } from '../sections';
+import AboutContent from '../sections/AboutContent';
 
 const About = ({ products, cart, changeQty, removeProduct }) => {
   return (
@@ -12,7 +13,7 @@ const About = ({ products, cart, changeQty, removeProduct }) => {
         removeProduct={removeProduct}
       />
       <section className='xl:padding-l wide:padding-r padding-b'>
-        Content
+        <AboutContent />
       </section>
       <section className='bg-black padding-x padding-t pb-8'>
         <Footer />
