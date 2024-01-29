@@ -16,7 +16,7 @@ const ProductPage = ({
   return (
     <main className='relative'>
       <Nav
-        page={'products'}
+        page={'/products'}
         cart={cart}
         products={products}
         changeQty={changeQty}

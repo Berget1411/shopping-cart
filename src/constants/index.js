@@ -20,8 +20,8 @@ import { customer1, customer2 } from '../assets/images';
 
 export const navLinks = [
   { location: '/', label: 'Home' },
-  { location: 'products', label: 'Products' },
-  { location: 'about', label: 'About Us' },
+  { location: '/products', label: 'Products' },
+  { location: '/about', label: 'About Us' },
 ];
 
 export const statistics = [

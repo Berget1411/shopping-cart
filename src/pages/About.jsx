@@ -6,7 +6,7 @@ const About = ({ products, cart, changeQty, removeProduct }) => {
   return (
     <main className='relative'>
       <Nav
-        page={'about'}
+        page={'/about'}
         cart={cart}
         products={products}
         changeQty={changeQty}

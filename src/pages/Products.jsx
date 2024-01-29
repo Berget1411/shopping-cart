@@ -32,7 +32,7 @@ const Products = ({ products, cart, addToCart, changeQty, removeProduct }) => {
   return (
     <main className='relative'>
       <Nav
-        page={'products'}
+        page={'/products'}
         cart={cart}
         products={products}
         changeQty={changeQty}
