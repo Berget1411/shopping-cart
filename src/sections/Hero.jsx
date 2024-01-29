@@ -29,7 +29,9 @@ const Hero = ({ product1, product2, product3 }) => {
           Discover Stylish shoe arrivals, quality comfort, and innovation for
           your active life.
         </p>
-        <Button label='Show now' iconURL={arrowRight} />
+        <Link to='/products'>
+          <Button label='Show now' iconURL={arrowRight} />
+        </Link>
         <div className='flex justify-start items-start flex-wrap w-full mt-20 gap-16'>
           {statistics.map((stat) => (
             <div key={stat.label}>
