@@ -1,4 +1,4 @@
-import PopularProductCard from '../components/popularProductCard';
+import { PopularProductCard } from '../components';
 
 const PopularProducts = ({ products }) => {
   const topProducts = products
