@@ -5,13 +5,14 @@ import ProductPage from './pages/ProductPage';
 import useProducts from './hooks/useProducts';
 import useCart from './hooks/useCart';
 import About from './pages/About';
+import { LoadingWheel } from './components';
 
 const Router = () => {
   const { products, error, loading } = useProducts();
   const { cart, addToCart, changeQty, removeProduct } = useCart();
 
   if (error) return <p>A network error was encountered</p>;
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingWheel />;
 
   const router = createBrowserRouter([
     {

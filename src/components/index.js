@@ -5,6 +5,7 @@ import ProductCard from './ProductCard';
 import ReviewCard from './ReviewCard';
 import ServiceCard from './ServiceCard';
 import CartCard from './CartCard';
+import LoadingWheel from './LoadingWheel';
 
 export {
   Button,
@@ -14,4 +15,5 @@ export {
   ReviewCard,
   ServiceCard,
   CartCard,
+  LoadingWheel,
 };
