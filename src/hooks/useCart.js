@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const useCart = () => {
   const [cart, setCart] = useState([]);
+  const [cartActive, setCartActive] = useState(false);
 
   const addToCart = (project) => {
     const searchArray = cart.filter((item) => {
@@ -42,7 +43,14 @@ const useCart = () => {
     );
   };
 
-  return { cart, addToCart, changeQty, removeProduct };
+  return {
+    cart,
+    addToCart,
+    changeQty,
+    removeProduct,
+    cartActive,
+    setCartActive,
+  };
 };
 
 export default useCart;

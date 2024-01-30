@@ -2,7 +2,14 @@ import { Nav } from '../components';
 import { Footer } from '../sections';
 import AboutContent from '../sections/AboutContent';
 
-const About = ({ products, cart, changeQty, removeProduct }) => {
+const About = ({
+  products,
+  cart,
+  changeQty,
+  removeProduct,
+  cartActive,
+  setCartActive,
+}) => {
   return (
     <main className='relative'>
       <Nav
@@ -11,6 +18,8 @@ const About = ({ products, cart, changeQty, removeProduct }) => {
         products={products}
         changeQty={changeQty}
         removeProduct={removeProduct}
+        cartActive={cartActive}
+        setCartActive={setCartActive}
       />
       <section className='xl:padding-l wide:padding-r padding-b'>
         <AboutContent />

@@ -5,10 +5,11 @@ import { Footer, Product } from '../sections';
 const ProductPage = ({
   products,
   cart,
-
   addToCart,
   changeQty,
   removeProduct,
+  cartActive,
+  setCartActive,
 }) => {
   const { productId } = useParams();
   const [product] = products.filter((item) => item.id == productId);
@@ -21,6 +22,8 @@ const ProductPage = ({
         products={products}
         changeQty={changeQty}
         removeProduct={removeProduct}
+        cartActive={cartActive}
+        setCartActive={setCartActive}
       />
       <section className='xl:padding-l wide:padding-r padding-b'>
         <Product product={product} cart={cart} addToCart={addToCart} />

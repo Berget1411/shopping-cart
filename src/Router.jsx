@@ -9,7 +9,14 @@ import { LoadingWheel } from './components';
 
 const Router = () => {
   const { products, error, loading } = useProducts();
-  const { cart, addToCart, changeQty, removeProduct } = useCart();
+  const {
+    cart,
+    addToCart,
+    changeQty,
+    removeProduct,
+    cartActive,
+    setCartActive,
+  } = useCart();
 
   if (error) return <p>A network error was encountered</p>;
   if (loading) return <LoadingWheel />;
@@ -24,6 +31,8 @@ const Router = () => {
           addToCart={addToCart}
           changeQty={changeQty}
           removeProduct={removeProduct}
+          cartActive={cartActive}
+          setCartActive={setCartActive}
         />
       ),
     },
@@ -36,6 +45,8 @@ const Router = () => {
           addToCart={addToCart}
           changeQty={changeQty}
           removeProduct={removeProduct}
+          cartActive={cartActive}
+          setCartActive={setCartActive}
         />
       ),
     },
@@ -48,6 +59,8 @@ const Router = () => {
           addToCart={addToCart}
           changeQty={changeQty}
           removeProduct={removeProduct}
+          cartActive={cartActive}
+          setCartActive={setCartActive}
         />
       ),
     },
@@ -60,6 +73,8 @@ const Router = () => {
           addToCart={addToCart}
           changeQty={changeQty}
           removeProduct={removeProduct}
+          cartActive={cartActive}
+          setCartActive={setCartActive}
         />
       ),
     },

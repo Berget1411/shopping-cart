@@ -8,9 +8,17 @@ import { shoppingBag, arrowRight } from '../assets/icons';
 import CartCard from './CartCard';
 import Button from './Button';
 
-const Nav = ({ page, cart, products, changeQty, removeProduct }) => {
+const Nav = ({
+  page,
+  cart,
+  products,
+  changeQty,
+  removeProduct,
+  cartActive,
+  setCartActive,
+}) => {
   const [hamburgerActive, setHamburgerActive] = useState(false);
-  const [cartActive, setCartActive] = useState(false);
+
   const { height, width } = useWindowDimensions();
 
   useEffect(() => {

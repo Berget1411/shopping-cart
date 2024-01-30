@@ -10,7 +10,15 @@ import {
 } from '../sections';
 import Nav from '../components/Nav';
 
-const Home = ({ products, cart, addToCart, changeQty, removeProduct }) => {
+const Home = ({
+  products,
+  cart,
+  addToCart,
+  changeQty,
+  removeProduct,
+  cartActive,
+  setCartActive,
+}) => {
   return (
     <main className='relative'>
       <Nav
@@ -19,6 +27,8 @@ const Home = ({ products, cart, addToCart, changeQty, removeProduct }) => {
         products={products}
         changeQty={changeQty}
         removeProduct={removeProduct}
+        cartActive={cartActive}
+        setCartActive={setCartActive}
       />
       <section className='xl:padding-l wide:padding-r padding-b '>
         <Hero

@@ -2,7 +2,15 @@ import { useState } from 'react';
 import { Nav } from '../components/';
 import { Footer, Filter, ProductCardGrid } from '../sections/';
 
-const Products = ({ products, cart, addToCart, changeQty, removeProduct }) => {
+const Products = ({
+  products,
+  cart,
+  addToCart,
+  changeQty,
+  removeProduct,
+  cartActive,
+  setCartActive,
+}) => {
   const [searchInput, setSearchInput] = useState('');
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState('a-z');
@@ -37,6 +45,8 @@ const Products = ({ products, cart, addToCart, changeQty, removeProduct }) => {
         products={products}
         changeQty={changeQty}
         removeProduct={removeProduct}
+        cartActive={cartActive}
+        setCartActive={setCartActive}
       />
       <section className='xl:padding-l wide:padding-r padding-b'>
         <Filter
