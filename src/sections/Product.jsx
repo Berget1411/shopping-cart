@@ -2,7 +2,7 @@ import { star } from '../assets/icons';
 import { Button } from '../components';
 import { Link } from 'react-router-dom';
 
-const Product = ({ product, cart, setCart, addToCart }) => {
+const Product = ({ product, cart, setCart, addToCart, setCartActive }) => {
   return (
     <section className='padding-x max-container flex flex-col gap-y-8 gap-x-32 lg:flex-row mb-32 pt-32'>
       <div className='flex justify-center max-w-lg w-full mx-auto  p-4 rounded-xl'>
@@ -47,7 +47,10 @@ const Product = ({ product, cart, setCart, addToCart }) => {
           </Link>
           <Button
             label={'Add to cart'}
-            eventListener={() => addToCart(product)}
+            eventListener={() => {
+              setCartActive(true);
+              addToCart(product);
+            }}
           />
         </div>
       </div>

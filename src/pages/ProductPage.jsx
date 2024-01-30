@@ -26,7 +26,12 @@ const ProductPage = ({
         setCartActive={setCartActive}
       />
       <section className='xl:padding-l wide:padding-r padding-b'>
-        <Product product={product} cart={cart} addToCart={addToCart} />
+        <Product
+          product={product}
+          cart={cart}
+          addToCart={addToCart}
+          setCartActive={setCartActive}
+        />
       </section>
       <section className='bg-black padding-x padding-t pb-8'>
         <Footer />
