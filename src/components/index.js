@@ -1,5 +1,6 @@
 import Button from './Button';
 import Nav from './Nav';
+import Footer from './Footer';
 import PopularProductCard from './PopularProductCard';
 import ProductCard from './ProductCard';
 import ReviewCard from './ReviewCard';
@@ -16,4 +17,5 @@ export {
   ServiceCard,
   CartCard,
   LoadingWheel,
+  Footer,
 };

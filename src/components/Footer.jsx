@@ -1,4 +1,4 @@
-import { logo } from '../assets/images/';
+import { logo } from '../assets/images';
 import { socialMedia } from '../constants';
 import { footerLinks } from '../constants';
 import { copyrightSign } from '../assets/icons';

@@ -1,6 +1,5 @@
 import {
   CustomerReviews,
-  Footer,
   Hero,
   PopularProducts,
   Services,

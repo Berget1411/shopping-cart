@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { Nav } from '../components';
-import { Footer, Product } from '../sections';
+import { Product } from '../sections';
 
 const ProductPage = ({
   products,

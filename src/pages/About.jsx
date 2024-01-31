@@ -1,5 +1,5 @@
 import { Nav } from '../components';
-import { Footer } from '../sections';
+
 import AboutContent from '../sections/AboutContent';
 
 const About = ({

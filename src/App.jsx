@@ -6,7 +6,7 @@ import useProducts from './hooks/useProducts';
 import useCart from './hooks/useCart';
 import About from './pages/About';
 import { LoadingWheel } from './components';
-import { Footer } from './sections';
+import { Nav, Footer } from './components';
 
 const Router = () => {
   const { products, error, loading } = useProducts();

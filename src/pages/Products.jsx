@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Nav } from '../components/';
-import { Footer, Filter, ProductCardGrid } from '../sections/';
+import { Filter, ProductCardGrid } from '../sections/';
 
 const Products = ({
   products,
