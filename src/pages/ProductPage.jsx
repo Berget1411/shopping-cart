@@ -2,15 +2,7 @@ import { useParams } from 'react-router-dom';
 
 import { Product } from '../sections';
 
-const ProductPage = ({
-  products,
-  cart,
-  addToCart,
-  changeQty,
-  removeProduct,
-  cartActive,
-  setCartActive,
-}) => {
+const ProductPage = ({ products, cart, addToCart, setCartActive }) => {
   const { productId } = useParams();
   const [product] = products.filter((item) => item.id == productId);
 

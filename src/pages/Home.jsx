@@ -8,15 +8,7 @@ import {
   SuperQuality,
 } from '../sections';
 
-const Home = ({
-  products,
-  cart,
-  addToCart,
-  changeQty,
-  removeProduct,
-  cartActive,
-  setCartActive,
-}) => {
+const Home = ({ products }) => {
   return (
     <main className='relative'>
       <section className='xl:padding-l wide:padding-r padding-b '>

@@ -2,15 +2,7 @@ import { useState } from 'react';
 
 import { Filter, ProductCardGrid } from '../sections/';
 
-const Products = ({
-  products,
-  cart,
-  addToCart,
-  changeQty,
-  removeProduct,
-  cartActive,
-  setCartActive,
-}) => {
+const Products = ({ products }) => {
   const [searchInput, setSearchInput] = useState('');
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState('a-z');
@@ -18,16 +10,16 @@ const Products = ({
   const sortProducts = () => {
     switch (sort) {
       case 'a-z':
-        return products.sort((a, b) => a.title.localeCompare(b.title));
+        return products.toSorted((a, b) => a.title.localeCompare(b.title));
 
       case 'z-a':
-        return products.sort((a, b) => b.title.localeCompare(a.title));
+        return products.toSorted((a, b) => b.title.localeCompare(a.title));
 
       case 'low-high':
-        return products.sort((a, b) => a.price - b.price);
+        return products.toSorted((a, b) => a.price - b.price);
 
       case 'high-low':
-        return products.sort((a, b) => b.price - a.price);
+        return products.toSorted((a, b) => b.price - a.price);
     }
   };
 

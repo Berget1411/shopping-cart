@@ -2,7 +2,7 @@ import { PopularProductCard } from '../components';
 
 const PopularProducts = ({ products }) => {
   const topProducts = products
-    .sort((a, b) => b.rating.rate - a.rating.rate)
+    .toSorted((a, b) => b.rating.rate - a.rating.rate)
     .slice(0, 4);
 
   return (

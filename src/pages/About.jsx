@@ -1,13 +1,6 @@
 import AboutContent from '../sections/AboutContent';
 
-const About = ({
-  products,
-  cart,
-  changeQty,
-  removeProduct,
-  cartActive,
-  setCartActive,
-}) => {
+const About = () => {
   return (
     <main className='relative'>
       <section className='xl:padding-l wide:padding-r padding-b'>
