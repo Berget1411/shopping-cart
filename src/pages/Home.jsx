@@ -7,7 +7,6 @@ import {
   Subscribe,
   SuperQuality,
 } from '../sections';
-import Nav from '../components/Nav';
 
 const Home = ({
   products,
@@ -20,15 +19,6 @@ const Home = ({
 }) => {
   return (
     <main className='relative'>
-      <Nav
-        page={'/'}
-        cart={cart}
-        products={products}
-        changeQty={changeQty}
-        removeProduct={removeProduct}
-        cartActive={cartActive}
-        setCartActive={setCartActive}
-      />
       <section className='xl:padding-l wide:padding-r padding-b '>
         <Hero
           product1={products[20]}

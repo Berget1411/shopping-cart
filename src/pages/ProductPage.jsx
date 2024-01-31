@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Nav } from '../components';
+
 import { Product } from '../sections';
 
 const ProductPage = ({
@@ -16,15 +16,6 @@ const ProductPage = ({
 
   return (
     <main className='relative'>
-      <Nav
-        page={'/products'}
-        cart={cart}
-        products={products}
-        changeQty={changeQty}
-        removeProduct={removeProduct}
-        cartActive={cartActive}
-        setCartActive={setCartActive}
-      />
       <section className='xl:padding-l wide:padding-r padding-b'>
         <Product
           product={product}

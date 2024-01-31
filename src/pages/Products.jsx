@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Nav } from '../components/';
+
 import { Filter, ProductCardGrid } from '../sections/';
 
 const Products = ({
@@ -39,15 +39,6 @@ const Products = ({
 
   return (
     <main className='relative'>
-      <Nav
-        page={'/products'}
-        cart={cart}
-        products={products}
-        changeQty={changeQty}
-        removeProduct={removeProduct}
-        cartActive={cartActive}
-        setCartActive={setCartActive}
-      />
       <section className='xl:padding-l wide:padding-r padding-b'>
         <Filter
           searchInput={searchInput}

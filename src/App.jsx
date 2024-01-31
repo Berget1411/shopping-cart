@@ -6,89 +6,40 @@ import useProducts from './hooks/useProducts';
 import useCart from './hooks/useCart';
 import About from './pages/About';
 import { LoadingWheel } from './components';
-import { Nav, Footer } from './components';
+import Layout from './components/Layout';
 
-const Router = () => {
+const App = () => {
   const { products, error, loading } = useProducts();
-  const {
-    cart,
-    addToCart,
-    changeQty,
-    removeProduct,
-    cartActive,
-    setCartActive,
-  } = useCart();
+  const cart = useCart();
 
   if (error) return <p>A network error was encountered</p>;
   if (loading) return <LoadingWheel />;
 
   const router = createBrowserRouter([
     {
-      path: '/',
-      element: (
-        <Home
-          products={products}
-          cart={cart}
-          addToCart={addToCart}
-          changeQty={changeQty}
-          removeProduct={removeProduct}
-          cartActive={cartActive}
-          setCartActive={setCartActive}
-        />
-      ),
-    },
-    {
-      path: '/products',
-      element: (
-        <Products
-          products={products}
-          cart={cart}
-          addToCart={addToCart}
-          changeQty={changeQty}
-          removeProduct={removeProduct}
-          cartActive={cartActive}
-          setCartActive={setCartActive}
-        />
-      ),
-    },
-    {
-      path: '/products/:productId',
-      element: (
-        <ProductPage
-          products={products}
-          cart={cart}
-          addToCart={addToCart}
-          changeQty={changeQty}
-          removeProduct={removeProduct}
-          cartActive={cartActive}
-          setCartActive={setCartActive}
-        />
-      ),
-    },
-    {
-      path: '/about',
-      element: (
-        <About
-          products={products}
-          cart={cart}
-          addToCart={addToCart}
-          changeQty={changeQty}
-          removeProduct={removeProduct}
-          cartActive={cartActive}
-          setCartActive={setCartActive}
-        />
-      ),
+      element: <Layout products={products} {...cart} />,
+      children: [
+        {
+          path: '/',
+          element: <Home products={products} {...cart} />,
+        },
+        {
+          path: '/products',
+          element: <Products products={products} {...cart} />,
+        },
+        {
+          path: '/products/:productId',
+          element: <ProductPage products={products} {...cart} />,
+        },
+        {
+          path: '/about',
+          element: <About products={products} {...cart} />,
+        },
+      ],
     },
   ]);
 
-  return (
-    <div className='relative' id='app'>
-      <RouterProvider router={router} />
-      <section className='bg-black padding-x padding-t pb-8'>
-        <Footer />
-      </section>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
-export default Router;
+export default App;

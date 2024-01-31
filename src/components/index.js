@@ -7,6 +7,7 @@ import ReviewCard from './ReviewCard';
 import ServiceCard from './ServiceCard';
 import CartCard from './CartCard';
 import LoadingWheel from './LoadingWheel';
+import Layout from './Layout';
 
 export {
   Button,
@@ -18,4 +19,5 @@ export {
   CartCard,
   LoadingWheel,
   Footer,
+  Layout,
 };
