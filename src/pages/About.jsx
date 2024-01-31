@@ -24,9 +24,6 @@ const About = ({
       <section className='xl:padding-l wide:padding-r padding-b'>
         <AboutContent />
       </section>
-      <section className='bg-black padding-x padding-t pb-8'>
-        <Footer />
-      </section>
     </main>
   );
 };

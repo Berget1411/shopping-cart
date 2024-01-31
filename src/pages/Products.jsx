@@ -61,9 +61,6 @@ const Products = ({
       <section className='xl:padding-l wide:padding-r padding-b'>
         <ProductCardGrid filteredProducts={filteredProducts} />
       </section>
-      <section className='bg-black padding-x padding-t pb-8'>
-        <Footer />
-      </section>
     </main>
   );
 };

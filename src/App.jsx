@@ -6,6 +6,7 @@ import useProducts from './hooks/useProducts';
 import useCart from './hooks/useCart';
 import About from './pages/About';
 import { LoadingWheel } from './components';
+import { Footer } from './sections';
 
 const Router = () => {
   const { products, error, loading } = useProducts();
@@ -80,7 +81,14 @@ const Router = () => {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <div className='relative' id='app'>
+      <RouterProvider router={router} />
+      <section className='bg-black padding-x padding-t pb-8'>
+        <Footer />
+      </section>
+    </div>
+  );
 };
 
 export default Router;
