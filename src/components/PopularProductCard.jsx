@@ -5,13 +5,13 @@ const PopularProductCard = ({ image, title, price, rating, id, category }) => {
   return (
     <Link to={`/products/${id}`}>
       <div className='flex flex-1 flex-col w-full max-sm:w-full sm-max: items-center  py-4 rounded-xl shadow-2xl hover:scale-110 transition-transform'>
-        <img
-          src={image}
-          alt={title}
-          className={`${
+        <div
+          className={`w-[280px] aspect-square overflow-hidden rounded-[25px] max-w-full  ${
             category === 'shoes' ? 'bg-[#C1C4DE]' : null
-          } w-[280px] h-[280px]  rounded-[25px]`}
-        />
+          }`}
+        >
+          <img src={image} alt={title} className={` cover w-full h-full `} />
+        </div>
 
         <div className='mt-8 flex justify-start gap-2.5'>
           <img src={star} alt='rating' width={24} height={24} />
