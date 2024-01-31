@@ -124,62 +124,65 @@ const Nav = ({
             ></div>
           </div>
         )}
-        {cartActive === true && (
-          <div>
-            <div className='z-50 fixed top-0 right-0  bg-white h-full w-full leading-5 text-sm max-w-xs md:max-w-xl flex flex-col py-5 px-5 md:px-16 md:py-10 transition-all duration-300 translate-x-0'>
-              <div className='flex justify-between align-center text-3xl font-bold'>
-                <h2>Shopping Bag</h2>
-                <button
-                  className='hover:text-slate-gray transition'
-                  onClick={() => setCartActive(false)}
-                >
-                  &#10005;
-                </button>
-              </div>
-              <div className='grow overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
-                {cart.length === 0 ? (
-                  <p className='text-lg mt-5'>
-                    No items have been added to your bag
-                  </p>
-                ) : (
-                  cart.map((product) => (
-                    <CartCard
-                      product={product}
-                      products={products}
-                      changeQty={changeQty}
-                      removeProduct={removeProduct}
-                      key={product.id}
-                    />
-                  ))
-                )}
-              </div>
-              <div className='border-t border-slate-300 pt-4 md:pt-6 px-7 md:px-16 text-black'>
-                <div className='flex justify-between font-bold text-lg mb-4'>
-                  <p>Subtotal:</p>
-                  <p>
-                    $
-                    {Math.round(
-                      cart
-                        .map((item) => item.qty * item.price)
-                        .reduce((acc, curr) => {
-                          return acc + curr;
-                        }, 0) * 100
-                    ) / 100}
-                  </p>
-                </div>
-                <Button
-                  label={'Checkout'}
-                  iconURL={arrowRight}
-                  fullWidth={true}
-                />
-              </div>
+
+        <div>
+          <div
+            className={`z-50 fixed top-0 right-0 bg-white h-full w-full leading-5 text-sm max-w-xs md:max-w-xl flex flex-col py-5 px-5 md:px-16 md:py-10 transition-all duration-300
+          ${cartActive ? 'translate-x-0 ' : ' translate-x-full'}`}
+          >
+            <div className='flex justify-between align-center text-3xl font-bold'>
+              <h2>Shopping Bag</h2>
+              <button
+                className='hover:text-slate-gray transition'
+                onClick={() => setCartActive(false)}
+              >
+                &#10005;
+              </button>
             </div>
-            <div
-              className='z-40 fixed top-0 right-0 w-full min-h-screen transition-all duration-300 bg-black/70 backdrop-blur-sm'
-              onClick={() => setCartActive(false)}
-            ></div>
+            <div className='grow overflow-y-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
+              {cart.length === 0 ? (
+                <p className='text-lg mt-5'>
+                  No items have been added to your bag
+                </p>
+              ) : (
+                cart.map((product) => (
+                  <CartCard
+                    product={product}
+                    products={products}
+                    changeQty={changeQty}
+                    removeProduct={removeProduct}
+                    key={product.id}
+                  />
+                ))
+              )}
+            </div>
+            <div className='border-t border-slate-300 pt-4 md:pt-6 px-7 md:px-16 text-black'>
+              <div className='flex justify-between font-bold text-lg mb-4'>
+                <p>Subtotal:</p>
+                <p>
+                  $
+                  {Math.round(
+                    cart
+                      .map((item) => item.qty * item.price)
+                      .reduce((acc, curr) => {
+                        return acc + curr;
+                      }, 0) * 100
+                  ) / 100}
+                </p>
+              </div>
+              <Button
+                label={'Checkout'}
+                iconURL={arrowRight}
+                fullWidth={true}
+              />
+            </div>
           </div>
-        )}
+          <div
+            className={`z-40 fixed top-0 right-0 w-full min-h-screen transition-all duration-300 bg-black/70 backdrop-blur-sm
+            ${cartActive ? '' : 'hidden'}`}
+            onClick={() => setCartActive(false)}
+          ></div>
+        </div>
       </nav>
     </header>
   );
