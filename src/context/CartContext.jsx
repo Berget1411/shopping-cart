@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { createContext, useState, useContext } from 'react';
 
-const useCart = () => {
+const CartContext = createContext();
+export const useCart = () => useContext(CartContext);
+
+const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [cartActive, setCartActive] = useState(false);
 
@@ -43,7 +46,7 @@ const useCart = () => {
     );
   };
 
-  return {
+  const value = {
     cart,
     addToCart,
     changeQty,
@@ -51,6 +54,8 @@ const useCart = () => {
     cartActive,
     setCartActive,
   };
+
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
-export default useCart;
+export default CartProvider;

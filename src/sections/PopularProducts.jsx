@@ -1,6 +1,8 @@
 import { PopularProductCard } from '../components';
+import { useProducts } from '../context/ProductsContext';
 
-const PopularProducts = ({ products }) => {
+const PopularProducts = () => {
+  const { products } = useProducts();
   const topProducts = products
     .toSorted((a, b) => b.rating.rate - a.rating.rate)
     .slice(0, 4);

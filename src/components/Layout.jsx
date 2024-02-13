@@ -2,14 +2,20 @@ import { Outlet } from 'react-router-dom';
 import Nav from './Nav';
 import Footer from './Footer';
 import { useLocation } from 'react-router-dom';
-
+import LoadingWheel from './LoadingWheel';
 import Cart from './Cart';
+import { useProducts } from '../context/ProductsContext';
 
-const Layout = (props) => {
+const Layout = () => {
+  const { error, loading } = useProducts();
+
+  if (error) return <p>A network error was encountered</p>;
+  if (loading) return <LoadingWheel />;
+
   const location = useLocation();
   return (
     <>
-      <Nav page={location.pathname} {...props} />
+      <Nav page={location.pathname} />
       <main>
         <Outlet />
       </main>
@@ -17,7 +23,7 @@ const Layout = (props) => {
         <Footer />
       </section>
       <div>
-        <Cart {...props} />
+        <Cart />
       </div>
     </>
   );

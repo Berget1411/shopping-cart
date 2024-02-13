@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
 import { Filter, ProductCardGrid } from '../sections/';
+import { useProducts } from '../context/ProductsContext';
 
-const Products = ({ products }) => {
+const Products = () => {
+  const { products } = useProducts();
   const [searchInput, setSearchInput] = useState('');
   const [category, setCategory] = useState('all');
   const [sort, setSort] = useState('a-z');

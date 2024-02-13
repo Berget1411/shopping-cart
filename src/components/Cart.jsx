@@ -2,15 +2,11 @@ import CartCard from './CartCard';
 import Button from './Button';
 import { AnimatePresence, motion } from 'framer-motion';
 import { arrowRight } from '../assets/icons';
+import { useCart } from '../context/CartContext';
 
-const Cart = ({
-  cart,
-  products,
-  changeQty,
-  removeProduct,
-  cartActive,
-  setCartActive,
-}) => {
+const Cart = () => {
+  const { cart, cartActive, setCartActive } = useCart();
+
   return (
     <AnimatePresence>
       {cartActive && (
@@ -41,13 +37,7 @@ const Cart = ({
                 </p>
               ) : (
                 cart.map((product) => (
-                  <CartCard
-                    product={product}
-                    products={products}
-                    changeQty={changeQty}
-                    removeProduct={removeProduct}
-                    key={product.id}
-                  />
+                  <CartCard product={product} key={product.id} />
                 ))
               )}
             </div>

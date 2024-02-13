@@ -7,10 +7,11 @@ import { navLinks } from '../constants';
 import { shoppingBag } from '../assets/icons';
 
 import HamburgerContent from './HamburgerContent';
+import { useCart } from '../context/CartContext';
 
-const Nav = ({ page, cart, cartActive, setCartActive }) => {
+const Nav = ({ page }) => {
   const [hamburgerActive, setHamburgerActive] = useState(false);
-
+  const { cart, cartActive, setCartActive } = useCart();
   const { width } = useWindowDimensions();
 
   useEffect(() => {

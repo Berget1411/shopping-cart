@@ -1,8 +1,10 @@
 import { star } from '../assets/icons';
 import { Button } from '../components';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
-const Product = ({ product, cart, setCart, addToCart, setCartActive }) => {
+const Product = ({ product }) => {
+  const { addToCart, setCartActive } = useCart();
   return (
     <section className='padding-x max-container flex flex-col items-start gap-y-8 gap-x-32 lg:flex-row mb-32 pt-32'>
       <div className='flex justify-center max-w-lg w-full mx-auto p-4 rounded-xl aspect-square overflow-hidden'>

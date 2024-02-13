@@ -1,3 +1,4 @@
+import { useProducts } from '../context/ProductsContext';
 import {
   CustomerReviews,
   Hero,
@@ -8,7 +9,8 @@ import {
   SuperQuality,
 } from '../sections';
 
-const Home = ({ products }) => {
+const Home = () => {
+  const { products } = useProducts();
   return (
     <main className='relative'>
       <section className='xl:padding-l wide:padding-r padding-b '>
@@ -19,7 +21,7 @@ const Home = ({ products }) => {
         />
       </section>
       <section className='padding'>
-        <PopularProducts products={products} />
+        <PopularProducts />
       </section>
       <section className='padding'>
         <SuperQuality />

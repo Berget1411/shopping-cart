@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import extraProducts from '../extraProducts';
 
-const useProducts = () => {
+const ProductsContext = createContext();
+export const useProducts = () => useContext(ProductsContext);
+
+const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -19,7 +22,13 @@ const useProducts = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  return { products, error, loading };
+  const value = { products, error, loading };
+
+  return (
+    <ProductsContext.Provider value={value}>
+      {children}
+    </ProductsContext.Provider>
+  );
 };
 
-export default useProducts;
+export default ProductsProvider;

@@ -1,6 +1,10 @@
-const CartCard = ({ product, products, changeQty, removeProduct }) => {
-  const [productFull] = products.filter((item) => item.id === product.id);
+import { useCart } from '../context/CartContext';
+import { useProducts } from '../context/ProductsContext';
 
+const CartCard = ({ product }) => {
+  const { products } = useProducts();
+  const [productFull] = products.filter((item) => item.id === product.id);
+  const { changeQty, removeProduct } = useCart();
   return (
     <div className='flex gap-5 mt-4 shadow-xl p-2 md:p-10 rounded-2xl'>
       <div>

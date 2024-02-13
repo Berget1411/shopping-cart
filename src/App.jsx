@@ -2,44 +2,44 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import ProductPage from './pages/ProductPage';
-import useProducts from './hooks/useProducts';
-import useCart from './hooks/useCart';
+
 import About from './pages/About';
-import { LoadingWheel } from './components';
 import Layout from './components/Layout';
+import CartProvider from './context/CartContext';
+import ProductsProvider from './context/ProductsContext';
 
 const App = () => {
-  const { products, error, loading } = useProducts();
-  const cart = useCart();
-
-  if (error) return <p>A network error was encountered</p>;
-  if (loading) return <LoadingWheel />;
-
   const router = createBrowserRouter([
     {
-      element: <Layout products={products} {...cart} />,
+      element: <Layout />,
       children: [
         {
           path: '/',
-          element: <Home products={products} {...cart} />,
+          element: <Home />,
         },
         {
           path: '/products',
-          element: <Products products={products} {...cart} />,
+          element: <Products />,
         },
         {
           path: '/products/:productId',
-          element: <ProductPage products={products} {...cart} />,
+          element: <ProductPage />,
         },
         {
           path: '/about',
-          element: <About products={products} {...cart} />,
+          element: <About />,
         },
       ],
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <CartProvider>
+      <ProductsProvider>
+        <RouterProvider router={router} />
+      </ProductsProvider>
+    </CartProvider>
+  );
 };
 
 export default App;
