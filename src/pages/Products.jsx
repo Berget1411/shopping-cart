@@ -27,7 +27,7 @@ const Products = () => {
 
   const filteredProducts = sortProducts().filter(
     (product) =>
-      product.title.toLowerCase().includes(searchInput) &&
+      product.title.toLowerCase().includes(searchInput.toLowerCase()) &&
       (category === 'all' || product.category === category)
   );
 
